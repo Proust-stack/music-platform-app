@@ -6,6 +6,7 @@ import { useRouter } from 'next/dist/client/router';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { useInput } from '../../hooks/useInput';
+import Image from 'next/image';
 
 const TrackPage = ({serverTrack}) => {
     const [track, setTrack] = useState<ITrack>(serverTrack)
@@ -39,7 +40,11 @@ const TrackPage = ({serverTrack}) => {
                 to tracks list
             </Button>
             <Grid container style={{margin: '20px 0'}}>
-                <img src={'https://music-platform-nest.herokuapp.com/' + track.picture} alt="" width={200} height={200}/>
+                <Image 
+                src={'https://music-platform-nest.herokuapp.com/' + track.picture} 
+                alt="track cover" 
+                width={200} 
+                height={200}/>
                 <div style={{marginLeft: 30}}>
                     <h1>track name: {track.name}</h1>
                     <h1>artist: {track.artist}</h1>
