@@ -1,0 +1,25 @@
+.nav {
+    background: #5f52aa;
+    height: 6vh;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20px;
+        div {
+            font-weight: 500;
+            font-style: normal;
+            padding: 20px;
+            font-size: 22px;
+            color: aqua;
+            
+        }
+    }
+}
+
