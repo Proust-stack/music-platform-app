@@ -26,7 +26,7 @@ const Create = () => {
             formData.append('artist', artist.value)
             formData.append('picture', picture)
             formData.append('audio', audio)
-            axios.post('http://localhost:3001/tracks', formData)
+            axios.post('https://music-platform-nest.herokuapp.com/tracks', formData)
             .then(res => router.push('/tracks'))
             .catch(e => console.log(e))
         }

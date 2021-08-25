@@ -24,7 +24,7 @@ const TrackItem: React.FC<TrackItemProps> = ({track, active = false}) => {
     }
     const deleteTrack = async (e) => {
         e.stopPropagation()
-        const response = await axios.delete('http://localhost:3001/tracks/' + track._id)
+        const response = await axios.delete('https://music-platform-nest.herokuapp.com/tracks/' + track._id)
         router.push('/tracks')
     }
     return (
@@ -39,7 +39,7 @@ const TrackItem: React.FC<TrackItemProps> = ({track, active = false}) => {
             alt="Picture of the author"
             width={70} 
             height={70} 
-            src={'http://localhost:3001/' + track.picture} 
+            src={'https://music-platform-nest.herokuapp.com/' + track.picture} 
             />
             <Grid container direction="column"  style={{width: 200, margin: '0 20px'}}>
                 <div>{track.name}</div>

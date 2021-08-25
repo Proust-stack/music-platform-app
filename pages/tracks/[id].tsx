@@ -15,7 +15,7 @@ const TrackPage = ({serverTrack}) => {
 
     const addComment = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/tracks/comment', {
+            const response = await axios.post('https://music-platform-nest.herokuapp.com/tracks/comment', {
             username: username.value,
             text: text.value,
             trackId: track._id
@@ -39,7 +39,7 @@ const TrackPage = ({serverTrack}) => {
                 to tracks list
             </Button>
             <Grid container style={{margin: '20px 0'}}>
-                <img src={'http://localhost:3001/' + track.picture} alt="" width={200} height={200}/>
+                <img src={'https://music-platform-nest.herokuapp.com/' + track.picture} alt="" width={200} height={200}/>
                 <div style={{marginLeft: 30}}>
                     <h1>track name: {track.name}</h1>
                     <h1>artist: {track.artist}</h1>
@@ -80,7 +80,7 @@ export default TrackPage;
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     try {
-        const response = await axios.get('http://localhost:3001/tracks/' + params.id)
+        const response = await axios.get('https://music-platform-nest.herokuapp.com/tracks/' + params.id)
         return {
             props: {
                 serverTrack: response.data
