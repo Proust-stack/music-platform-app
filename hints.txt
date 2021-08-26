@@ -1,1 +1,0 @@
-npx create-next-app client // creating next app in folder "client"
