@@ -4,7 +4,7 @@
     display: flex;   
     align-items: center;
     justify-content: center; 
-    background: linear-gradient(45deg, #EECFBA, #C5DDE8); 
+    background: url('../images/concert.jpg')  center / cover no-repeat; 
     .center {
         display: flex;   
         flex-direction: column;
