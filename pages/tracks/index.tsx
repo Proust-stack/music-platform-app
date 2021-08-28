@@ -2,7 +2,7 @@ import { Box, Button, Grid, TextField } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import { useRouter } from 'next/dist/client/router';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import TrackList from '../../components/TrackList';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import MainLayout from '../../layouts/MainLayout';

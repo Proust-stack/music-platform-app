@@ -41,7 +41,7 @@ const TrackPage = ({serverTrack}) => {
             </Button>
             <Grid container style={{margin: '20px 0'}}>
                 <Image 
-                src={'https://music-platform-nest.herokuapp.com/' + track.picture} 
+                src={track.picture} 
                 alt="track cover" 
                 width={200} 
                 height={200}/>
