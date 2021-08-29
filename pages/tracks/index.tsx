@@ -17,6 +17,8 @@ const Index = () => {
     const [timer, settimer] = useState(null)
     const dispatch = useDispatch() as NextThunkDispatch
 
+    console.log(tracks)
+
     const search = async (e: React.ChangeEvent<HTMLInputElement>) => {
         setquery(e.target.value)
         if (timer) {

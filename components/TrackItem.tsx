@@ -35,12 +35,8 @@ const TrackItem: React.FC<TrackItemProps> = ({track, active = false}) => {
                     : <Pause/>
                 }
             </IconButton>   
-            <Image 
-            alt="Picture of the author"
-            width={70} 
-            height={70} 
-            src={'https://music-platform-nest.herokuapp.com/' + track.picture} 
-            />
+            /* eslint-disable-next-line @next/next/no-img-element*/
+            <img src={'https://music-platform-nest.herokuapp.com/' + track.picture} alt="Picture of the author" className={styles.image}/>
             <Grid container direction="column"  style={{width: 200, margin: '0 20px'}}>
                 <div>{track.name}</div>
                 <div style={{fontSize: 12, color: 'gray'}}>{track.artist}</div>
