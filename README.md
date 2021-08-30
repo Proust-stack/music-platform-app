@@ -9,4 +9,9 @@ npm run dev
 yarn dev
 ```
 
+```bash
+server is on nestJS, deployed on  heroku, thus does not save files, save instances if to create track
+db: mongoDB
+```
+
 [deployed here](https://trusting-hawking-f6ba47.netlify.app/) 
