@@ -25,7 +25,7 @@ const Player = () => {
 
     const setAudio = () => {
         if (active) {
-            audio.src = active.audio
+            audio.src = 'https://music-platform-nest.herokuapp.com/ + active.audio'
             audio.volume = volume / 100 
             audio.onloadedmetadata = () => {
                 setDuration(Math.ceil(audio.duration))

@@ -10,6 +10,7 @@ import { NextThunkDispatch, wrapper } from '../../store';
 import { fetchTracks, searchTracks } from '../../store/action-creators/track';
 
 
+
 const Index = () => {
     const router = useRouter()
     const {tracks, error} = useTypedSelector(state => state.track)
@@ -64,11 +65,6 @@ export const getServerSideProps = wrapper.getServerSideProps(async ({store}) => 
         const dispatch = store.dispatch as NextThunkDispatch
         await dispatch(await fetchTracks())
     } catch (error) {
-        return {
-            redirect: {
-                destination: '/tracks',
-                statusCode: 307
-            }
-        }
+       console.log(error)
     }
 })
