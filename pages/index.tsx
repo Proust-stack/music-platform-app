@@ -1,23 +1,40 @@
 
-import React from 'react';
-import Navbar from '../components/Navbar';
-import MainLayout from '../layouts/MainLayout';
+import React, { useState } from 'react';
 import styles from '../styles/Index.module.scss'
 import Link from 'next/link'
 import { Grid } from '@material-ui/core';
+import NoSsr from '@mui/material/NoSsr';
+import Box from '@mui/material/Box';
+import Grow from '@mui/material/Grow';
+import FirebaseAuth from '../components/auth/FirebaseAuth'
+import {useUser} from '../firebase/useUser'
+import MenuAppBar from '../components/MenuAppbar';
+import Footer from '../components/Footer';
+import CustomColor from '../components/buttons/Neutral';
+import { useRouter } from 'next/dist/client/router';
 
-const index = () => {
+const Home = () => {
+    const router = useRouter()
+    const { user, logout } = useUser()
+    const [isLogedIn, setIsLoggedIn] = useState(null)
+    React.useEffect(() => {
+        setIsLoggedIn(user)
+      }, [user])
     return (
-        <Grid container className={styles.container}>
-            <MainLayout>
-                <div className={styles.center}>
-                    <h1>Добро пожаловать!</h1>
-                    <h3>Здесь собраны лучшие треки!</h3>
-                    <h3>*тестовая версия</h3>
-                </div>
-            </MainLayout>
-    </Grid>
+        <NoSsr>
+            <Grid container className={styles.container}>
+                    <MenuAppBar/>
+                    <Grow in timeout={2000}>
+                        <Box className={styles.center}>
+                            <h3>*test version </h3>
+                            {!isLogedIn && <FirebaseAuth/>}
+                            {isLogedIn && <CustomColor router={router}/>}
+                        </Box>
+                    </Grow>
+                    <Footer/>        
+            </Grid>
+        </NoSsr>
     );
 };
 
-export default index;
+export default Home;

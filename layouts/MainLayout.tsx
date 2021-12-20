@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Player from '../components/Player';
 import Head from "next/head";
+import DrawerMini from '../components/DrawerMini';
 
 interface MainLayoutProps {
     title?: string;
@@ -19,14 +20,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     return (
         <>  
              <Head>
-                <title>{title || 'Музыкальная площадка'}</title>
-                <meta name="description" content={`Музыкальная площадка. Здесь каждый может оставить свой трек и стать знаменитым.` + description}/>
-                <meta name="keywords" content={keywords || "Музыка, треки, артисты"}/>
+                <title>{title || 'Music platform'}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
-            <Navbar/>
+            <DrawerMini/>
                     {children}
-            <Player/>
+            
         </>
     );
 };

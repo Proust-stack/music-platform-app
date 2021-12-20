@@ -1,15 +1,16 @@
 .track {
-    margin: 20px;
-    padding: 10px;
     display: flex;
     align-items: center;
-    width: 25vw;
-    border-radius: 30px;
-    background: linear-gradient(45deg, #da90e4, #47aad8);
+    // background: linear-gradient(45deg, #da90e4, #47aad8);
     cursor: pointer;
+    padding: 0 10px;
   }
 
   .image {
     width: 70px;
     height: 70px;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+    border-radius: 5px;
+    margin-left: 10px;
   }

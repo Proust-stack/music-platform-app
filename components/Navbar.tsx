@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import {useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -18,11 +18,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useRouter} from "next/router";
+import firebase from '../firebase/firebase';
 
 const menuItems = [
-    {text: 'Главная', href: '/'},
-    {text: 'Список треков', href: '/tracks'},
-    {text: 'Список альбомов', href: '/albums'},
+    {text: 'Tracks', href: '/tracks'},
+    {text: 'Albums', href: '/albums'},
+    {text: 'Account', href: '/albums'},
+    {text: 'Favorites', href: '/albums'},
 ]
 
 export default function Navbar() {

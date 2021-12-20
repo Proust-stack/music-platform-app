@@ -1,0 +1,55 @@
+.registrate {
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    .top {
+        .wrapper {
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .logo {
+                height: 40px;
+            }
+        }
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        top: 0;
+        left: 0;
+        h1 {
+            font-size: 50px;
+        }
+        h2 {
+            margin: 20px;
+        }
+        p {
+            font-size: 20px;
+        }
+        .input {
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            border-radius: 5px;
+            flex-direction: column;
+            height: 200px;
+            input {
+                background-color: #fff;
+                padding: 0 10px;
+                border-radius: 5px;
+                height: 15%;
+                margin: 4px;
+                width: 100%;
+            }
+        }
+    }
+}

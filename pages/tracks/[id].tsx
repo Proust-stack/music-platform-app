@@ -1,5 +1,8 @@
 import { Button, Grid, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MainLayout from '../../layouts/MainLayout';
 import { ITrack } from '../../types/track';
 import { useRouter } from 'next/dist/client/router';
@@ -7,85 +10,55 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { useInput } from '../../hooks/useInput';
 import Image from 'next/image';
+import MusicPlayerSlider from '../../components/TrackPage';
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const TrackPage = ({serverTrack}) => {
+    const theme = useTheme();
+    const colorMode = React.useContext(ColorModeContext);
     const [track, setTrack] = useState<ITrack>(serverTrack)
     const router = useRouter()
     const username = useInput('')
     const text = useInput('')
 
-    const addComment = async () => {
-        try {
-            const response = await axios.post('https://music-platform-nest.herokuapp.com/tracks/comment', {
-            username: username.value,
-            text: text.value,
-            trackId: track._id
-        })
-        setTrack({...track, comments: [...track.comments, response.data]})
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    return (
-        <MainLayout
-            title={"Музыкальная площадка - " + track.name + " - " + track.artist}
-            keywords={'Музыка, артисты, ' + track.name + ", " + track.artist}
-        >
-            <Button 
-            onClick={() => router.push('/tracks')}
-            variant={"outlined"}
-            style={{fontSize: 32}}
-            >
-                to tracks list
-            </Button>
-            <Grid container style={{margin: '20px 0'}}>
-                <Image 
-                src={track.picture} 
-                alt="track cover" 
-                width={200} 
-                height={200}/>
-                <div style={{marginLeft: 30}}>
-                    <h1>track name: {track.name}</h1>
-                    <h1>artist: {track.artist}</h1>
-                    <h1>number of listerning: {track.listens}</h1>
-                </div>
-            </Grid>
-            <h1>lyrics</h1>
-            <p>{track.text}</p>
-            <h1>comments</h1>
-            <Grid container>
-                <TextField 
-                label="your name" 
-                fullWidth
-                {...username}
-                />
-                <TextField 
-                label="your comment" 
-                fullWidth multiline 
-                rows={4}  
-                style={{marginTop: 10}}
-                {...text}
-                />
-                <Button onClick={addComment}>add comment</Button>
-            </Grid>
-            <div>
-                {track.comments.map(comment => 
-                    <div key={comment._id}>
-                        <div>User: {comment.username}</div>
-                        <div>Comment: {comment.text}</div>
-                    </div>
-                    )}
-            </div>
-        </MainLayout>
-    );
+    return <MusicPlayerSlider track={track}/>
 };
 
-export default TrackPage;
+export default function ToggleColorMode({serverTrack}) {
+    const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
+    const colorMode = React.useMemo(
+      () => ({
+        toggleColorMode: () => {
+          setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        },
+      }),
+      [],
+    );
+  
+    const theme = React.useMemo(
+      () =>
+        createTheme({
+          palette: {
+            mode,
+          },
+        }),
+      [mode],
+    );
+  
+    return (
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <TrackPage serverTrack={serverTrack}/>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+    );
+  }
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
     try {
         const response = await axios.get('https://music-platform-nest.herokuapp.com/tracks/' + params.id)
+        // const response = await axios.get('http://localhost:3001/tracks/' + params.id)
         return {
             props: {
                 serverTrack: response.data
