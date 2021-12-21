@@ -176,7 +176,8 @@ const returnToTracks = (e) => {
     <Grid container sx={{ width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
       <Widget sx={{ padding: 1, borderRadius: 2}}>
         <CoverImage>
-            <Image
+          {/* eslint-disable-next-line @next/next/no-img-element*/}
+            <img
               alt="album image"
               src={tracks[trackIndex || 0].picture}
               width={350}
