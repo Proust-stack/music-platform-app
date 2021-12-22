@@ -14,6 +14,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import {useUser} from '../../firebase/useUser'
 import FirebaseAuth from '../../components/auth/FirebaseAuth';
 import Player from '../../components/Player';
+import NoSsr from '@mui/material/NoSsr';
 
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -60,7 +61,7 @@ const Index = () => {
 
     return (
         <MainLayout title={"Список треков - музыкальная площадка"}>
-            <>
+            <NoSsr>
                 {user 
                 ? 
                     <Grid 
@@ -113,7 +114,7 @@ const Index = () => {
                 :
                 <FirebaseAuth/>
                 }
-            </>
+            </NoSsr>
         </MainLayout>
     );
 };
