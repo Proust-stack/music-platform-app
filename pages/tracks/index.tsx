@@ -31,7 +31,8 @@ const Index = () => {
     const [timer, settimer] = useState(null)
     const dispatch = useDispatch() as NextThunkDispatch
     const dispatchAuth = useDispatch()
-
+    
+    console.log(tracks);
     // useEffect(() => {
     //     const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
     //         dispatchAuth({type: UserActionTypes.FETCH_USER, payload: {
@@ -150,11 +151,11 @@ export default function ToggleColorMode() {
     );
   }
 
-export const getServerSideProps = wrapper.getStaticProps(async ({store}) => {
-    try {
-        const dispatch = store.dispatch as NextThunkDispatch
-        await dispatch(await fetchTracks())
-    } catch (error) {
-       console.log(error)
-    }
-})
+// export const getServerSideProps = wrapper.getStaticProps(async ({store}) => {
+//     try {
+//         const dispatch = store.dispatch as NextThunkDispatch
+//         await dispatch(await fetchTracks())
+//     } catch (error) {
+//        console.log(error)
+//     }
+// })

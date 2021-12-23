@@ -11,7 +11,7 @@ const firebaseAuthConfig = {
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ],
-    signInSuccessUrl: '/tracks',
+    // signInSuccessUrl: '/tracks',
     credentialHelper: 'none',
     callbacks: {
         signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {

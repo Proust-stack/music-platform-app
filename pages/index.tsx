@@ -12,14 +12,27 @@ import MenuAppBar from '../components/MenuAppbar';
 import Footer from '../components/Footer';
 import CustomColor from '../components/buttons/Neutral';
 import { useRouter } from 'next/dist/client/router';
+import {useDispatch } from 'react-redux';
+import { NextThunkDispatch } from '../store';
+import { fetchTracks } from '../store/action-creators/track';
 
 const Home = () => {
     const router = useRouter()
     const { user, logout } = useUser()
     const [isLogedIn, setIsLoggedIn] = useState(null)
+    const dispatch = useDispatch() as NextThunkDispatch
     React.useEffect(() => {
         setIsLoggedIn(user)
       }, [user])
+
+    async function fetchData() {
+        await dispatch(await fetchTracks())
+    }
+
+    if (user) {
+        fetchData()
+    }
+    
     return (
         <NoSsr>
             <Grid container className={styles.container}>

@@ -123,6 +123,10 @@ const MusicPlayerSlider: React.FC<TrackPageProps> = ({track}) => {
           setAudio(tracks[trackIndex])
           play()
       }
+      return () => {
+        setPaused(true)
+        audio.pause()
+      }
   }, [trackIndex])
 
 
