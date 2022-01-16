@@ -10,8 +10,14 @@ yarn dev
 ```
 
 ```bash
-server is on nestJS, 
-db: mongoDB
+                                Music app
+frontend: NextJS, 
+backend: NestJS,
+db: mongoDB,
+using typescript,
+authentification: firebase,
+using firebase storage,
+signUp: switchedd off,  for password  or authentication link - ask
 ```
 
 [deployed here](https://trusting-hawking-f6ba47.netlify.app/) 
