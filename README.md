@@ -10,7 +10,7 @@ yarn dev
 ```
 
 ```bash
-server is on nestJS, deployed on  heroku, thus does not save files, save instances if to create track
+server is on nestJS, 
 db: mongoDB
 ```
 
