@@ -1,6 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+##                       Music app
 
 
 ```bash
@@ -10,14 +9,14 @@ yarn dev
 ```
 
 ```bash
-                                Music app
 frontend: NextJS, 
 backend: NestJS,
 db: mongoDB,
 using typescript,
 authentification: firebase,
 using firebase storage,
-signUp: switchedd off,  for password  or authentication link - ask
+signUp: switchedd off,  for password  or authentication: 
+testing access: login: ya@ya.ru, pass: Inter111
 ```
 
 [deployed here](https://trusting-hawking-f6ba47.netlify.app/) 
