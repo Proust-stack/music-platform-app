@@ -19,4 +19,4 @@ signUp: switchedd off,  for password  or authentication:
 testing access: login: ya@ya.ru, pass: Inter111
 ```
 
-[deployed here](https://trusting-hawking-f6ba47.netlify.app/) 
+[deployed here](https://musing-bhaskara-c69304.netlify.app) 
